@@ -57,6 +57,7 @@ namespace DungeonLibrary
             set { _type = value; }
         }
 
+
         //COLLECT/CATCH/CONSTRUCTORS
         public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
@@ -87,6 +88,8 @@ namespace DungeonLibrary
                 $"Bonus Hit: {BonusHitChance}\n" +
                 $"{(IsTwoHanded ? "Two" : "One")}-Handed {Type}";
         }
+
+       
     }
 }
 
