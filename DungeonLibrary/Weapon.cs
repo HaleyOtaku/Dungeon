@@ -15,6 +15,7 @@ namespace DungeonLibrary
         private int _maxDamage;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        private WeaponType _type;
 
         //PROPERTIES
         public int MinDamage
@@ -50,8 +51,14 @@ namespace DungeonLibrary
             set { _isTwoHanded = value;}
         }
 
+        public WeaponType Type 
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+
         //COLLECT/CATCH/CONSTRUCTORS
-        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded)
+        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
             if(minDamage >= maxDamage)
             {
@@ -63,6 +70,7 @@ namespace DungeonLibrary
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
+            Type = type;
         }
 
 
@@ -77,7 +85,7 @@ namespace DungeonLibrary
             return $"{Name}\n" +
                 $"Damage: {MinDamage} - {MaxDamage}\n" +
                 $"Bonus Hit: {BonusHitChance}\n" +
-                $"{(IsTwoHanded ? "Two" : "One")}-Handed";
+                $"{(IsTwoHanded ? "Two" : "One")}-Handed {Type}";
         }
     }
 }
