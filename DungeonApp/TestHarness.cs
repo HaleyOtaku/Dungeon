@@ -11,23 +11,6 @@ namespace DungeonApp
     {
         static void Main(string[] args)
         {
-            #region
-            //Character Isolde = new Character("Isolde",70,20,100);
-            //Console.WriteLine(Isolde);
-            Weapon w1 = new Weapon("Stick", 0, 1, 0, false, WeaponType.Sword);
-            Console.WriteLine(w1);
-
-
-
-
-            //int x = 42;
-            //object y = 52;
-            //y = x;
-            //y = w1;
-            //Console.WriteLine(((Weapon)y).Name);
-            #endregion
-
-
             //Put in main (Program) under room initialization for player to pick their weapon and then assign it
             //Can call Weapon.WeaponPickerMethod() in Program to initiate that
 
