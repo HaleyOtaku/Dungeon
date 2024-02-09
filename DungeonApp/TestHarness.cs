@@ -11,21 +11,22 @@ namespace DungeonApp
     {
         static void Main(string[] args)
         {
+            #region
             //Character Isolde = new Character("Isolde",70,20,100);
             //Console.WriteLine(Isolde);
             Weapon w1 = new Weapon("Stick", 0, 1, 0, false, WeaponType.Sword);
             Console.WriteLine(w1);
 
-            }
+
+
+
+            //int x = 42;
+            //object y = 52;
+            //y = x;
+            //y = w1;
+            //Console.WriteLine(((Weapon)y).Name);
             #endregion
 
-            int x = 42;
-            object y = 52;
-            y = x;
-            y = w1;
-            Console.WriteLine(((Weapon)y).Name);
-
-        
 
             //Put in main (Program) under room initialization for player to pick their weapon and then assign it
             //Can call Weapon.WeaponPickerMethod() in Program to initiate that
@@ -50,27 +51,27 @@ namespace DungeonApp
             //Make the enums into an array/list 
             //the default is array
 
-            List<WeaponType> weaponTypes = Enum.GetValues<WeaponType>().ToList();
+            //List<WeaponType> weaponTypes = Enum.GetValues<WeaponType>().ToList();
 
-            Console.WriteLine("Weapon Types: ");
-            int index = 1;
+            //Console.WriteLine("Weapon Types: ");
+            //int index = 1;
 
-            foreach (WeaponType item in weaponTypes) {
+            //foreach (WeaponType item in weaponTypes) {
 
-                Console.WriteLine($"{index++}) {item}");
-            }
+            //    Console.WriteLine($"{index++}) {item}");
+            //}
 
-            Console.Write("Pick a type: ");
-            int.TryParse(Console.ReadLine(), out int choice);
+            //Console.Write("Pick a type: ");
+            //int.TryParse(Console.ReadLine(), out int choice);
 
-            //from the collection
+            ////from the collection
 
-            WeaponType type = weaponTypes[choice - 1];
-            WeaponType type2 = (WeaponType)(choice - 1);
+            //WeaponType type = weaponTypes[choice - 1];
+            //WeaponType type2 = (WeaponType)(choice - 1);
 
-            Console.WriteLine($"{type}{type2}");
+            //Console.WriteLine($"{type}{type2}");
 
-            Console.Clear();
+            //Console.Clear();
 
             //Loot Box - ask if they wanna loot this thing, if yes, put in loot list, if not, exit
 
@@ -89,17 +90,18 @@ namespace DungeonApp
 
         }
 
+
+
+        //TODO Move Weapon Selection to its own, referencable class or move to library
+
+        //TODO Inspect Button to Inspect Current Weapon or Inventory Weapon
+
+        //TODO Title Page
+        //TODO Main Menu
+        //TODO Inventory Menu
+        //TODO Make an Inventory (Array) w subclasses or types, like the weapons
+
     }
-
-    //TODO Move Weapon Selection to its own, referencable class or move to library
-
-    //TODO Inspect Button to Inspect Current Weapon or Inventory Weapon
-
-    //TODO Title Page
-    //TODO Main Menu
-    //TODO Inventory Menu
-    //TODO Make an Inventory (Array) w subclasses or types, like the weapons
-
 }
 
 
