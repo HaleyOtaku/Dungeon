@@ -1,6 +1,8 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    //"abstract" indicates that this structure is "incomplete"
+    //This is an inheritance-only class
+    public abstract class Character
     {
         //name - string
         //max life - int
@@ -17,6 +19,8 @@
         //istwohanded - bool
         //bonus hit chance - can be added onto players base hit chance
 
+        //If we want to make a Character, we have to use one of its subtypes (Player/Monster)
+
         //FIELDS
         private string _name = null!;
         // (null!) allows us to make something null while promising to pass a
@@ -28,18 +32,18 @@
 
 
         //PROPERTIES
-        private string Name
+        public string Name
         {
             get { return _name; }
             set { _name = value; }
         
         }
-        private int MaxLife //independent
+        public int MaxLife //independent
         {
             get { return _maxLife; }
             set { _maxLife = value; }
         }
-        private int Life //dependant on MaxLife
+        public int Life //dependant on MaxLife
         {
             get { return _life; }
             set {
@@ -53,13 +57,13 @@
             }
         }
 
-        private int HitChance
+        public int HitChance
         {
             get { return _hitChance; }
             set { _hitChance = value; }
         }
 
-        private int Dodge
+        public int Dodge
         {
             get { return _dodge; }
             set { _dodge = value; }
@@ -84,6 +88,8 @@
             //added so we can have default ctors in our monster classes later.
         }
 
+
+
         //METHODS
         public override string ToString()
         {
@@ -94,19 +100,23 @@
                    $"Dodge: {Dodge}%\n";
         }
 
-        public int CalcDodge() 
+        //Because we intend to use Character as a base class for other, more specific types,
+        //we want those classes to have their own version of the below code.
+        public virtual int CalcDodge() 
         {
-            return Dodge;
+            return Dodge;//Return DOdge for Player class, overriden for the monster subtypes
         }
 
-        public int CalcHitChance() 
+        public virtual int CalcHitChance() 
         { 
             return HitChance;
         }
+        //We don't really have ANY functionality defined here, so, we can make this method abstract.
+        //Abstract methods cannot have a {body}.
+        //Abstract methods create a contract. Any child class MUST complete (implement this method to be considered a type of
+        //"Character"
 
-        public int CalcDamage()
-        {
-            return 0;
-        }
+        //Abstract members can only be created in abstract classes.
+        public abstract int CalcDamage();
     }
 } 

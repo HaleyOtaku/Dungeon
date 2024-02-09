@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -74,10 +75,6 @@ namespace DungeonLibrary
         }
 
 
-
-
-
-
         //METHODS
         public override string ToString()
         {
@@ -87,6 +84,13 @@ namespace DungeonLibrary
                 $"Bonus Hit: {BonusHitChance}\n" +
                 $"{(IsTwoHanded ? "Two" : "One")}-Handed {Type}";
         }
+
+
+        //public static Weapon GetWeapon() 
+        //{
+
+        //    return ;
+        //}
     }
 }
 

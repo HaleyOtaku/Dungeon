@@ -1,4 +1,6 @@
-﻿namespace DungeonApp
+﻿using DungeonLibrary;
+
+namespace DungeonApp
 {
     internal class Program
     {
@@ -12,17 +14,53 @@
                     "      |\n");
             #endregion
 
+
             #region Player Set Up
-           //TODO Player Object Creation
+            //TODO Customize Player Creation
+            //Potential Expansion: Let them choose a weapon, a race, and enter their own name.
+
+            Console.WriteLine("****** CHARACTER CREATION ******");
+
+            #region Character Name Assignment
+            Console.Write("Please enter your character name: ");
+            string playerName = Console.ReadLine();
+            #endregion
+            Console.Clear();
+
+            #region Race Selection
+            int index = 1;
+            List<Race> race = Enum.GetValues<Race>().ToList();
+            Console.WriteLine($"Please Select Your Character's Race: \n");
+            int index1 = 1;
+            foreach (Race item in race)
+            {
+
+                Console.WriteLine($"{index1++}) {item}");
+
+            }
+            int.TryParse(Console.ReadLine(), out int choice);
+            //from the collection
+            Race playerRace = (Race)(choice - 1);
+            #endregion
+            Console.Clear();
+
+            #region Weapon Selection
+            Weapon weapon = new Weapon("Longsword", 10, 30, 5, true, WeaponType.Sword);
+            #endregion
+
+            Player player = new Player(playerName, 40, 5, 70, playerRace, weapon);
+
             #endregion
 
             #region Main Game Loop
-           bool exit = false;//if true, quit the whole game
+            bool exit = false;//if true, quit the whole game
             do {
                 //TODO generate a monster
+                Monster monster = Monster.GetMonster();
                 //TODONE generate a room
                 string room = GetRoom();
-                Console.WriteLine(room); 
+                Console.WriteLine(room);
+                Console.WriteLine("In this room..." + monster.Name);
 
                 #region Encounter Loop
                 bool newRoom = false;
@@ -34,6 +72,7 @@
                         "R) Run away\n" +
                         "P) Player Info\n" +
                         "M) Monster Info\n" +
+                        "I) Inventory\n"+
                         "X) Exit\n");
 
                     string userChoice = Console.ReadKey(true).Key.ToString();
@@ -42,30 +81,38 @@
                     {
                         case "A":
                             Console.WriteLine("ATTACK!");
-                            //TODO Combat functionality
+                            bool deadMonster = Combat.DoBattle(player, monster);
+                            newRoom = deadMonster;
                             break;
 
                         case "R":
-                            //TODO monster free attack chance
                             Console.WriteLine("Run away!!!");
+                            Console.WriteLine($"{monster.Name} attacks you as you flee...");
+                            Combat.DoAttack(monster,player);
+                            Console.WriteLine();
                             newRoom = true;
                             break;
 
                         case "P":
-                            Console.WriteLine("Behold, a gamer...");
-                            //TODO show player info
+                            Console.WriteLine(player);
+                     
                             break;
 
 
                         case "M":
-                            Console.WriteLine("Monster Stuff");
-                            //TODO show monster info
+                            Console.WriteLine(monster);
+                            
                             break;
 
                         case "X":
                             Console.WriteLine("No one likes a quitter.");
                             exit = true;
                             break;
+
+                        case "I":
+                            //TODO : Call the Inventory method or class
+                            break;
+
 
                         default:
                             #region Invalid Input
@@ -79,6 +126,12 @@
 
                     #region Check Player Life
                     //TODO Check Player Life
+                    //If you have an inventory, or a revive object, could use it at this point
+                    if (player.Life <= 0)
+                    {
+                        Console.WriteLine("Dude...You died!\a");
+                        exit = true; //end the game
+                    }
                     #endregion
 
                 } while (!newRoom && !exit);//while both newRoom and exit are not true, keep looping.
@@ -89,8 +142,13 @@
 
             #region Outro
             //TODO Final Score, end the story
+            Console.WriteLine($"You defeated {player.Score} monster(s).");
+
+            //Ask the player if they wanna play again, if so, use main args below
+            //Main(args);//restarts the application, or main method in this case.
+            Console.ReadKey(true);
             #endregion
- 
+
         }
 
         private static string GetRoom()
