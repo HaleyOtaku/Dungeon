@@ -31,6 +31,10 @@ namespace DungeonLibrary
                     Dodge += 7;
                     break;
                 case Race.Orc:
+                    Life += 6;
+                    MaxLife += 6;
+                    HitChance += 2;
+                    Dodge -= 3;
                     break;
                 case Race.Elf:
                     Life -= 5;
@@ -39,21 +43,66 @@ namespace DungeonLibrary
                     Dodge += 5;
                     break;
                 case Race.Halfling:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
                     break;
                 case Race.Gnome:
+                    Life += 4;
+                    MaxLife += 4;
+                    HitChance -= 7;
+                    Dodge += 7;
                     break;
                 case Race.Tabaxi:
+                    Life += 8;
+                    MaxLife += 5;
+                    HitChance -= 5;
+                    Dodge += 2;
                     break;
                 case Race.Dwarf:
+                    Life += 10;
+                    MaxLife += 5;
+                    HitChance += 1;
+                    Dodge -= 2;
                     break;
                 case Race.Dragonborn:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
                     break;
                 case Race.Aasimar:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
                     break;
                 case Race.Harengon:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
                     break;
                 case Race.Tiefling:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
                     break;
+                case Race.Half_Elf:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
+                    break;
+                case Race.Half_Orc:
+                    Life += 3;
+                    MaxLife += 3;
+                    HitChance -= 10;
+                    Dodge += 7;
+                    break;
+
                 default:
                     break;
             }
