@@ -16,10 +16,8 @@ namespace DungeonApp
             Weapon w1 = new Weapon("Stick", 0, 1, 0, false, WeaponType.Sword);
             Console.WriteLine(w1);
 
-            Console.WriteLine();
-            Weapon w2 = new Weapon("Sword of Azeroth", 5, 10, 3, true, WeaponType.Sword);
-            Console.WriteLine(w2);
-            Console.WriteLine();
+            }
+            #endregion
 
             int x = 42;
             object y = 52;
@@ -90,5 +88,18 @@ namespace DungeonApp
 
 
         }
+
     }
+
+    //TODO Move Weapon Selection to its own, referencable class or move to library
+
+    //TODO Inspect Button to Inspect Current Weapon or Inventory Weapon
+
+    //TODO Title Page
+    //TODO Main Menu
+    //TODO Inventory Menu
+    //TODO Make an Inventory (Array) w subclasses or types, like the weapons
+
 }
+
+
