@@ -84,6 +84,8 @@ namespace DungeonApp
         //TODO Inventory Menu
         //TODO Make an Inventory (Array) w subclasses or types, like the weapons
 
+        //Add a few sealed classes that wont need to have children
+
     }
 }
 
