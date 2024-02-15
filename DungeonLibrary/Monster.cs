@@ -65,10 +65,11 @@ namespace DungeonLibrary
         //An action of some sort
         public override string ToString()
         {
-            return "****************** Monster ******************\n" + base.ToString() +
+            return base.ToString() +
                 $"Damage: {MinDamage} - {MaxDamage}\n" +
                 $"Description: {Description}";
         }
+
         public override int CalcDamage()
         {
             Random rand = new Random();
@@ -81,9 +82,10 @@ namespace DungeonLibrary
             Monster m1 = new("Monster 1", 50, 20, 25, 8, 2, "The First Monster");
             Monster m2 = new("Monster 2", 50, 20, 25, 8, 2, "The Second Monster");
             Monster m3 = new("Monster 3", 50, 20, 25, 8, 2, "The Third Monster");
-            Monster m4 = new("Monster 4", 50, 20, 25, 8, 2, "The First Monster");
+            Monster m4 = new("Monster 4", 50, 20, 25, 8, 2, "The Fourth Monster");
 
-            List<Monster> monsters = new List<Monster>() { m1,m2,m3,m4};//can put in multiple times if you want certain ones
+            List<Monster> monsters = new List<Monster>() 
+            {   m1,m2,m3,m4};//can put in multiple times if you want certain ones
             //to show up more frequently
 
             int randomIndex = new Random().Next(monsters.Count);

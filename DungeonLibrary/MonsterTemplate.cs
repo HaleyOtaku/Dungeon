@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DungeonLibrary
 {
     //make it public!
-    public class MonsterTemplate : Monster //rename MonsterTemplate to monster subtype
+    public sealed class MonsterTemplate : Monster //rename MonsterTemplate to monster subtype
     {
         //FIELDS
         //-- ONLY IF YOU HAVE BUSINESS RULES

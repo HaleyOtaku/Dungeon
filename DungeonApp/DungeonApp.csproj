@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DungeonLibrary\DungeonLibrary.csproj" />
+    <ProjectReference Include="..\InventoryLibrary\InventoryLibrary.csproj" />
   </ItemGroup>
 
 </Project>

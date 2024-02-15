@@ -21,7 +21,7 @@ namespace DungeonLibrary
             PlayerRace = playerRace;
             EquippedWeapon = equippedWeapon;
 
-            #region Potential Expansion - Racial Bonuses
+            #region Expansion - Racial Bonuses
             switch (PlayerRace)
             {
                 case Race.Human:
@@ -119,7 +119,7 @@ namespace DungeonLibrary
                    $"Life: {Life}/{MaxLife}\n" +
                    $"Hit Chance: {HitChance}%\n" +
                    $"Dodge: {Dodge}%\n" + 
-                   $"\nWeapon:\n{EquippedWeapon}\n"
+                   $"\nWeapon: {EquippedWeapon}\n"
                ;
         }
 
