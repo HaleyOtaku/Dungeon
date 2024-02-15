@@ -11,82 +11,27 @@ namespace DungeonApp
     {
         static void Main(string[] args)
         {
-            //Put in main (Program) under room initialization for player to pick their weapon and then assign it
-            //Can call Weapon.WeaponPickerMethod() in Program to initiate that
-
-            //Do this here or in main
-            //Player.equippedWeapon  to make sure weapon is equipped
-
-            //Player player1 = Player.equippedWeapon();
-
-            //if I were to make a getweapon method in the weapon class
-            //to get the specific weapon the user picks in the program and set equipped weapon as
-            //that weapon, how would I use that method from the weapon class in the program file to do that?
-            //I dont know how to call a method from the weapon class and calling the chosen weapon from it
-            //to assign it to the player in the program class
+            //Fill in flavor for monster descriptions
 
 
-            //cw type it out
-            //switch into it
+            //Inventory
+            //List or Enum or other holding option
+            //Holds usable and non-usable objects
+            //Give users option to use potions or equip looted weapons or original weapon if swapped out
 
 
-            ////////////////////////////////////////////////////
-            //Make the enums into an array/list 
-            //the default is array
-
-            //List<WeaponType> weaponTypes = Enum.GetValues<WeaponType>().ToList();
-
-            //Console.WriteLine("Weapon Types: ");
-            //int index = 1;
-
-            //foreach (WeaponType item in weaponTypes) {
-
-            //    Console.WriteLine($"{index++}) {item}");
-            //}
-
-            //Console.Write("Pick a type: ");
-            //int.TryParse(Console.ReadLine(), out int choice);
-
-            ////from the collection
-
-            //WeaponType type = weaponTypes[choice - 1];
-            //WeaponType type2 = (WeaponType)(choice - 1);
-
-            //Console.WriteLine($"{type}{type2}");
-
-            //Console.Clear();
-
-            //Loot Box - ask if they wanna loot this thing, if yes, put in loot list, if not, exit
+            //Loot
+            //1 Loot drop per monster battle
+            //If want to equip it or use it (potion or weapon)?
+            //If so, use now, or equip weapon now and put current weapon into inventory.
+            //Ask if want to pick up
+            //If so, want to put in inventory?
+            //If not, get rid of it
 
 
-
-            /////////////////////////////////////////////////////////////////////
-            //do
-            //{
-            //    Monster monster = Monster.GetMonster(); //use this format to equip weapon too
-            //    Console.WriteLine(monster);
-            //    Console.WriteLine(monster.CalcDamage);
-            //    Console.ReadLine();
-            //} while (true);
-
-
-
+            //Want to give player option to check out stats of weapon during initial picking and then determine whether or not to equip
+            //originally selected weapon or choose another one.
         }
-
-
-
-        //TODO Move Weapon Selection to its own, referencable class or move to library
-
-        //TODO Inspect Button to Inspect Current Weapon or Inventory Weapon
-
-        //TODO Title Page
-        //TODO Main Menu
-        //TODO Inventory Menu
-        //TODO Make an Inventory (Array) w subclasses or types, like the weapons
-
-        //Add a few sealed classes that wont need to have children
-
     }
-}
 
 
