@@ -31,7 +31,12 @@ namespace DungeonApp
 
             //Want to give player option to check out stats of weapon during initial picking and then determine whether or not to equip
             //originally selected weapon or choose another one.
+
+            //player.equipweapon = lootedweapon
         }
     }
+
+
+}
 
 
