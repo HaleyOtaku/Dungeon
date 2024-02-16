@@ -109,7 +109,17 @@ namespace DungeonLibrary
             #endregion
         }
 
-     
+        public Player()
+        {
+            Name = "Generic Person";
+            HitChance = 5;
+            Dodge = 5;
+            MaxLife = 5;
+            PlayerRace = Race.Human;
+            Weapon equippedWeapon = new();
+
+
+        }
 
         //Methods
         public override string ToString()

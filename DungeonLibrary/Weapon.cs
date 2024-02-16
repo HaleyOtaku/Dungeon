@@ -77,6 +77,15 @@ namespace DungeonLibrary
             Type = type;
         }
 
+        public Weapon()
+        {
+            Name = "Generic Weapon";
+            MinDamage = 0; 
+            MaxDamage = 5;
+            BonusHitChance = 0;
+            IsTwoHanded = false;
+            WeaponType type = WeaponType.Sword;
+        }
 
         //METHODS
         public override string ToString()

@@ -10,8 +10,10 @@ namespace DungeonApp
     internal class TestHarness
     {
         static void Main(string[] args)
-        {
-            //Fill in flavor for monster descriptions
+        {   
+            //TODO Rename Things + Add Flavor
+            //Fill in flavor for all monster descriptions (Use ChatGPT descriptions)
+            //Change m1-4 names and descriptions and stats
 
 
             //Inventory
