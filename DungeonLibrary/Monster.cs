@@ -56,7 +56,13 @@ namespace DungeonLibrary
         //If your parent class does not have a parameter list ctor, you CANNOT have one in the child classes.
         public Monster() //:base()
         {
-            
+            Name = "Generic Monster";
+            HitChance = 5;
+            Dodge = 5;
+            MaxLife = 5;
+            MaxDamage = 5; 
+            MinDamage = 0;
+            Description= string.Empty;
         }
 
         //METHODS
