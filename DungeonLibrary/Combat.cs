@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InventoryLibrary;
 
 namespace DungeonLibrary
 {
@@ -104,6 +105,26 @@ namespace DungeonLibrary
 
                 Console.WriteLine($"\nYou killed {monster.Name}!\n");
                 Console.ResetColor();
+
+                //To print
+                Item item = Item.GetItems();
+                Console.WriteLine($"{item.Name}\n");
+
+                Console.WriteLine($"Would you like to pick up {item.Name}?\nN) No\n\n");
+
+                Console.ReadLine();
+
+                Thread.Sleep(3000);
+
+                { Console.WriteLine($"{item.Name} dropped!"); }
+
+                //player.AddItem(item);
+               // Console.WriteLine($"\n{item.Name} added to inventory!");
+                      
+                Thread.Sleep(3000);
+
+                Console.Clear();
+
                 return true;//victory!! (monster is dead)
             }
         }

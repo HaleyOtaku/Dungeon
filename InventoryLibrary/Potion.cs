@@ -15,10 +15,11 @@ namespace InventoryLibrary
 
         //PROPERTIES
         public string PotionStrength { get; set; }
+        public int PotionHealing { get; set; }
 
         //COLLECT/CATCH/CONSTRUCTORS
-        public Potion(string name, int qty, string description, string objectType,
-            string potionStrength) : base(name, qty, description, objectType)
+        public Potion(string name, int qty, string description, string objectType, int id,
+            string potionStrength) : base(name, qty, description, objectType, id)
         {
             PotionStrength = potionStrength;
 
@@ -26,17 +27,19 @@ namespace InventoryLibrary
             {
                 case "LESSER":
                 case "L":
-
+                    PotionHealing = 5;
                     break;
 
                 case "BASIC":
                 case "B":
+                    PotionHealing = 10;
+
 
                     break;
 
                 case "GREATER":
                 case "G":
-
+                    PotionHealing = 15;
                     break;
 
                 default: break;
@@ -50,24 +53,6 @@ namespace InventoryLibrary
             return base.ToString();
         }
 
-
-        public override int GetQty()
-        {
-            return Qty;
-        }
-
-        public static Potion GetPotion()
-        {
-            Potion p1 = new("Lesser Healing Potion", 1, "Lesser Healing Potion", "Potion", "Lesser");
-            Potion p2 = new("Healing Potion", 1, "Basic Healing Potion", "Potion", "Basic");
-            Potion p3 = new("Greater Healing Potion", 1, "Greater Healing Potion", "Potion", "Greater");
-
-            List<Potion> potions = new List<Potion>() { p1, p2, p3 };
-
-            int randIndex = new Random().Next(potions.Count);
-            Potion potion = potions[randIndex];
-            return potion;
-        }
     }
 }
 

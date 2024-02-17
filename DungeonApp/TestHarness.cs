@@ -10,7 +10,7 @@ namespace DungeonApp
     internal class TestHarness
     {
         static void Main(string[] args)
-        {   
+        {
             //TODO Rename Things + Add Flavor
             //Fill in flavor for all monster descriptions (Use ChatGPT descriptions)
             //Change m1-4 names and descriptions and stats
@@ -35,6 +35,24 @@ namespace DungeonApp
             //originally selected weapon or choose another one.
 
             //player.equipweapon = lootedweapon
+
+
+
+            // Jeremy Notes:
+
+            //in inventory page of menu, after ask if wanna use, put (player.Life +=  ((Potion) item).PotionHealing)
+            //Player.EquippedWeapon = (Weapon)item)
+            //Remove from inventory after use
+            //Inventory.RemoveAt(//playerChoiceAtInventoryPage)
+
+
+            //cw("Are you sure? Y/N")
+            //string response = Console.ReadKey(true).Key.ToString();
+            //switch (response) { }
+
+
+
+
         }
     }
 

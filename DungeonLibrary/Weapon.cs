@@ -108,8 +108,9 @@ namespace DungeonLibrary
             Weapon hammer = new("Mallet", 5, 7, 3, true, WeaponType.Hammer);
             Weapon bowAndArrow = new("Bow and Arrow", 1, 7, 7, true, WeaponType.Ranged);
             Weapon dagger = new("Dagger", 2, 5, 4, false, WeaponType.Knife);
+            Weapon maxWeapon = new("Dev Weapon", 99, 100, 100, false, WeaponType.Sword);
 
-            List <Weapon> weapons = new List<Weapon>() {stick,longSword,staff,fireBall,hammer,bowAndArrow,dagger};
+            List <Weapon> weapons = new List<Weapon>() {stick,longSword,staff,fireBall,hammer,bowAndArrow,dagger,maxWeapon};
             foreach (Weapon item in weapons)
             {
                 Console.WriteLine($"{index++}) {item.Name}");
@@ -117,11 +118,11 @@ namespace DungeonLibrary
             Console.WriteLine();
 
             //readline
-            int.TryParse(Console.ReadLine(), out int choice); //1-7
+            int.TryParse(Console.ReadLine(), out int choice); //1-8
 
 
             //if statement - if true return if not, return getweapon
-            if (choice > 0 && choice < 7)
+            if (choice > 0 && choice < 9)
             { 
                 return weapons[choice - 1];
             }

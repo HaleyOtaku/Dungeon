@@ -27,27 +27,44 @@ namespace DungeonLibrary
                 if (value.ToUpper() == "FIRE" || value.ToUpper() == "F")
                 {
                     dragonType = "Fire";
+                    Name = "The Emberwing";
                     MaxDamage += 2;
                     MinDamage += 2;
+                    Description = "The Emberwing is a majestic creature cloaked in shimmering scales of intense crimson and gold.\n" +
+                        "Its massive wings, resembling fiery infernos, fan the air with each beat, leaving trails of sparks in its\n" +
+                        "wake. The Emberwing's eyes blaze with an inner flame, reflecting both its destructive power and ancient wisdom.\n";
 
                 }
                 else if (value.ToUpper() == "ICE" || value.ToUpper() == "I")
                 {
                     dragonType = "Ice";
+                    Name = "The White Frostwing";
                     MaxLife += 5;
                     Life += 5;
+                    Description = "The White Frostwing boasts radiant white scales that mimic freshly fallen snow,\n" +
+                        "intricately adorned with frost patterns. Its colossal, sinuous frame is complemented by\n" +
+                        "translucent wings featuring delicate frost veins. The dragon's piercing icy-blue eyes reflect\n" +
+                        "ancient wisdom, while its lethal claws and teeth hint at formidable power.\n";
 
                 }
                 else if (value.ToUpper() == "WINGED" || value.ToUpper() == "W")
                 {
                     dragonType = "Winged";
+                    Name = "The Wyrmsoar";
                     Dodge -= 5;
                     MinDamage += 2;
+                    Description = "The Wyrmsoar commands the skies with an imposing presence. Its scales shimmer with a metallic luster,\n" +
+                        "ranging from deep emerald to obsidian, while mighty wings, expansive and membrane-stretched, grant it unparalleled\n" +
+                        "aerial prowess. Glowing, intelligent eyes convey ancient wisdom, and serrated claws and fangs attest to its formidable\n" +
+                        "combat capabilities.\n";
                 }
                 else if (value.ToUpper() == "CHINESE" || value.ToUpper() == "C")
                 {
                     dragonType = "Chinese";
-
+                    Name = "The Celestial Serpent";
+                    Description = "The Celestial Serpent gracefully weaves through the air with a sinuous, serpentine body adorned in vibrant hues\n" +
+                        "of azure, jade, and gold. Its long, majestic whiskers and flowing beard accentuate its wise and benevolent nature, while\n" +
+                        "luminous, pearl-like orbs along its back exude an otherworldly radiance.\n";
                 }
                 else { dragonType = ""; }
             }
@@ -75,7 +92,10 @@ namespace DungeonLibrary
             Dodge = 5;
             MinDamage = 2;
             Description = "The Dragon";
-            DragonType = "";
+            DragonType = "The dragon commands awe and fear with its majestic presence. Towering at colossal heights,\n" +
+                "its scaly hide gleams with a resplendent sheen. The dragon's serpentine neck supports a head crowned\n" +
+                "with fearsome horns. With claws that can rend stone and a breath weapon that embodies the essence of its\n" +
+                "draconic lineage, the dragon is a formidable force.\n";
         }
 
 

@@ -22,7 +22,7 @@ namespace InventoryLibrary
         //METHODS
         public static Loot GetLoot()
         {
-            var potion = Potion.GetPotion();
+            //var potion = Potion.GetPotion();
 
             var legWeapon = Weapon.GetLegendaryWeapon();
 

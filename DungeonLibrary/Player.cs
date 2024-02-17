@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace DungeonLibrary
         public Race PlayerRace { get; set; }
         public Weapon EquippedWeapon { get; set; }
         public int Score { get; set; }
+        public List<Item> Inventory { get; set;}
 
         //Constructors
         public Player(string name, int hitChance, int dodge, int maxLife,
@@ -131,6 +133,31 @@ namespace DungeonLibrary
                    $"Dodge: {Dodge}%\n" + 
                    $"\nWeapon: {EquippedWeapon}\n"
                ;
+        }
+
+        //TODO print inventory here instead of item
+        //foreach item in inventory, similar to race or weapon picking
+
+        //console writeline then switch the response, no and default both, Life += Item.Potion
+
+
+
+        //Use to pickup item in loot drop and add to inventory
+        //player.AddItem(item)
+        //in combat or main method after checked to see if monster is dead
+
+        public void AddItem(Item item)
+        {
+            //Find out if item already exists in inventory
+            if (Inventory.Any(i => i.ID == item.ID))
+            {
+                Inventory.Single(i => i.ID == item.ID).Qty++;
+            }
+            else
+            { 
+                Inventory.Add(item);
+            }
+
         }
 
         public override int CalcDamage()
