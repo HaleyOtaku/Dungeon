@@ -39,13 +39,13 @@ namespace DungeonLibrary
                 //TODO : Use this logic to make a healing potion work
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{attacker.Name} hit {defender.Name} for {damage} damage!");
+                Console.WriteLine($"  {attacker.Name} hit {defender.Name} for {damage} damage!");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{attacker.Name} missed!");
+                Console.WriteLine($"  {attacker.Name} missed!");
                 Console.ResetColor();
             }
 
@@ -75,10 +75,6 @@ namespace DungeonLibrary
             else 
             {
 
-                //TODO : Call a Loot or Inventory Class, Randomly Drop from a List
-                //Q: What class to put a loot or inventory class? Player and Monster classes? Character?
-                //Make new classes for each and call them appropriately in either player or monster?
-
                 #region Potential Expansion - Combat Rewards
                 //you could add logic here to grant player life.
                 //player.Life += player.MaxLife / 10
@@ -103,23 +99,49 @@ namespace DungeonLibrary
                 player.Score++;
                 Console.ForegroundColor= ConsoleColor.Green;
 
-                Console.WriteLine($"\nYou killed {monster.Name}!\n");
+                Console.WriteLine($"\n  {player.Name} killed {monster.Name}!\n");
                 Console.ResetColor();
 
                 //To print
                 Item item = Item.GetItems();
-                Console.WriteLine($"{item.Name}\n");
+                bool repeat = false;
+                do
+                {
+                    Thread.Sleep(1000);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"\n  {monster.Name} dropped {item.Name}!\n");
+                    Console.ResetColor();
+   
+                    Console.WriteLine($"\n  Would you like to pick up {item.Name}?\n\n  Y) Yes\n  N) No\n\n");
+               
+                    string choice = Console.ReadLine();
 
-                Console.WriteLine($"Would you like to pick up {item.Name}?\nN) No\n\n");
+                        if (choice.ToLower() == "y")
+                        {
+                            player.AddItem(item);
+                            Thread.Sleep(1000);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"\n  {item.Name} added to inventory!");
+                        Console.ResetColor();
+                            repeat = false;
+                        }
+                        else if (choice.ToLower() == "n")
+                        {
+                            Thread.Sleep(3000);
+                            Console.WriteLine($"\n  {item.Name} dropped!");
+                            repeat = false;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\n\n  You seem to have gotten lost, Hero! Try again!");
+                            Thread.Sleep(2000);
+                            Console.Clear();
+                            repeat = true;
+                        }
 
-                Console.ReadLine();
+                } while (repeat == true);
 
-                Thread.Sleep(3000);
-
-                { Console.WriteLine($"{item.Name} dropped!"); }
-
-                //player.AddItem(item);
-               // Console.WriteLine($"\n{item.Name} added to inventory!");
                       
                 Thread.Sleep(3000);
 

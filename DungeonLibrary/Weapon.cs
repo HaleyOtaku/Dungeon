@@ -90,10 +90,10 @@ namespace DungeonLibrary
         //METHODS
         public override string ToString()
         {
-            return $"{Name}\n" +
-                $"Damage: {MinDamage} - {MaxDamage}\n" +
-                $"Bonus Hit: {BonusHitChance}\n" +
-                $"{(IsTwoHanded ? "Two" : "One")}-Handed {Type}";
+            return $"\n\n  {Name}\n" +
+                $"  Damage: {MinDamage} - {MaxDamage}\n" +
+                $"  Bonus Hit: {BonusHitChance}\n" +
+                $"  {(IsTwoHanded ? "Two" : "One")}-Handed {Type}";
         }
 
 
@@ -113,20 +113,28 @@ namespace DungeonLibrary
             List <Weapon> weapons = new List<Weapon>() {stick,longSword,staff,fireBall,hammer,bowAndArrow,dagger,maxWeapon};
             foreach (Weapon item in weapons)
             {
-                Console.WriteLine($"{index++}) {item.Name}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"  {index++}) {item.Name}");
+                Console.ResetColor();
             }
             Console.WriteLine();
 
             //readline
             int.TryParse(Console.ReadLine(), out int choice); //1-8
 
+            Console.Write($"Do you wish to see the details of {choice} before equipping? (Y/N)");
+             
 
             //if statement - if true return if not, return getweapon
-            if (choice > 0 && choice < 9)
-            { 
-                return weapons[choice - 1];
-            }
-            else {return GetWeapon();}
+            
+                if (choice > 0 && choice < 9)
+                { 
+                    return weapons[choice - 1];
+                }
+                else {return GetWeapon();}
+
+            
+           
         }
 
         //For Loot

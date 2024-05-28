@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace DungeonLibrary
@@ -22,6 +25,7 @@ namespace DungeonLibrary
         {
             PlayerRace = playerRace;
             EquippedWeapon = equippedWeapon;
+            Inventory = new List<Item> ();
 
             #region Expansion - Racial Bonuses
             switch (PlayerRace)
@@ -126,17 +130,22 @@ namespace DungeonLibrary
         //Methods
         public override string ToString()
         {
-            return $"---------------{Name}--------------\n" +
-                   $"Race: {PlayerRace.ToString().Replace('_', ' ')}\n\n"+
-                   $"Life: {Life}/{MaxLife}\n" +
-                   $"Hit Chance: {HitChance}%\n" +
-                   $"Dodge: {Dodge}%\n" + 
-                   $"\nWeapon: {EquippedWeapon}\n"
+            return $"\n\n  --------------- {Name} --------------\n\n" +
+                   $"  Race: {PlayerRace.ToString().Replace('_', ' ')}\n\n"+
+                   $"  Life: {Life}/{MaxLife}\n" +
+                   $"  Hit Chance: {HitChance}%\n" +
+                   $"  Dodge: {Dodge}%\n" + 
+                   $"  {EquippedWeapon}\n"
                ;
         }
 
         //TODO print inventory here instead of item
         //foreach item in inventory, similar to race or weapon picking
+        public static bool getInventory()
+        {
+            return false;
+        }
+
 
         //console writeline then switch the response, no and default both, Life += Item.Potion
 
@@ -148,17 +157,32 @@ namespace DungeonLibrary
 
         public void AddItem(Item item)
         {
-            //Find out if item already exists in inventory
-            if (Inventory.Any(i => i.ID == item.ID))
+            foreach (var p in Inventory)
             {
-                Inventory.Single(i => i.ID == item.ID).Qty++;
-            }
-            else
-            { 
-                Inventory.Add(item);
+               if(p.ID == item.ID)
+                {
+                    p.Qty++;
+                }
+                else
+                {
+                    Inventory.Add(item);
+                }
             }
 
+            #region Jeremy Helped with
+            //Find out if item already exists in inventory
+            //if (Inventory.Any(i => i.ID == item.ID))
+            //{
+            //    Inventory.Single(i => i.ID == item.ID).Qty++;
+            //}
+            //else
+            //{ 
+            //    Inventory.Add(item);
+            //}
+            #endregion
+
         }
+
 
         public override int CalcDamage()
         {
